@@ -1,5 +1,5 @@
+import { TeamPlayerInputs } from '~/components/team-player-inputs/team-player-inputs';
 import './home-page.css';
-import { UsernameInput } from '~/components/username-input/username-input';
 
 export function HomePage() {
     return (
@@ -19,7 +19,8 @@ export function HomePage() {
                         To get started, please input the in-game usernames of all summoners:
                     </p>
                     <div className="input-container">
-                        <UsernameInput />
+                        <TeamPlayerInputs teamNumber={1} />
+                        <TeamPlayerInputs teamNumber={2} />
                     </div>
                 </div>
             </div>
