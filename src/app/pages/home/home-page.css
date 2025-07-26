@@ -2,7 +2,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 4rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
     min-height: 100vh;
     background-color: #0f2220;
