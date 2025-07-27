@@ -4,6 +4,6 @@
 
 ```
 cd src
-npm instatll
-npm run dev
+npm install
+npm start
 ```
