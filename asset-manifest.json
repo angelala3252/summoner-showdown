@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/summoner-showdown/static/css/main.e0f44573.css",
+    "main.js": "/summoner-showdown/static/js/main.18b3ad7b.js",
+    "static/js/453.a4d49db5.chunk.js": "/summoner-showdown/static/js/453.a4d49db5.chunk.js",
+    "index.html": "/summoner-showdown/index.html",
+    "main.e0f44573.css.map": "/summoner-showdown/static/css/main.e0f44573.css.map",
+    "main.18b3ad7b.js.map": "/summoner-showdown/static/js/main.18b3ad7b.js.map",
+    "453.a4d49db5.chunk.js.map": "/summoner-showdown/static/js/453.a4d49db5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0f44573.css",
+    "static/js/main.18b3ad7b.js"
+  ]
+}
