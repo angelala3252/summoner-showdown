@@ -9,3 +9,8 @@ cd frontend
 npm install
 npm start
 ```
+
+# Deployment instructions
+```
+
+```

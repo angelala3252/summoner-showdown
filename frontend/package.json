@@ -1,6 +1,7 @@
 {
   "name": "src",
   "version": "0.1.0",
+  "homepage": "https://angelala3252.github.io/summoner-showdown/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -16,6 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,6 +44,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.1.9",
-    "@types/react-dom": "^19.1.7"
+    "@types/react-dom": "^19.1.7",
+    "gh-pages": "^6.3.0"
   }
 }
