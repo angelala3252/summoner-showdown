@@ -3,7 +3,7 @@
 # Instructions
 
 ```
-cd src
+cd frontend
 npm install
 npm start
 ```
