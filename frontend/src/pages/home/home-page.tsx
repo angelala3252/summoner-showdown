@@ -1,4 +1,4 @@
-import { TeamPlayerInputs } from '~/components/team-player-inputs/team-player-inputs';
+import { TeamPlayerInputs } from '../../components/team-player-inputs/team-player-inputs';
 import './home-page.css';
 
 export function HomePage() {
