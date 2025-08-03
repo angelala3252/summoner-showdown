@@ -6,6 +6,7 @@ export function HomePage() {
     const [team1Players, setTeam1Players] = useState(Array(5).fill({ username: '', tag: '' }));
     const [team2Players, setTeam2Players] = useState(Array(5).fill({ username: '', tag: '' }));
     const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(null);
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -20,8 +21,7 @@ export function HomePage() {
                 body: JSON.stringify(payload),
             });
             const data = await response.json();
-            // handle response (show result, etc.)
-            console.log(data);
+            setResult(data);
         } catch (error) {
             console.error('Error submitting teams:', error);
         } finally {
@@ -39,21 +39,35 @@ export function HomePage() {
                     </div>
                 </header>
                 <div className="body-container">
-                    <p>
-                        Welcome to Summoner Showdown, a League of Legends match predictor based off of ELO of each summoner in a match!
-                        <br />
-                        <br />
-                        To get started, please input the in-game usernames of all summoners:
-                    </p>
-                    {loading ? (
-                        <div className="loader"></div>
-                    ) : (
-                        <div className="input-container">
-                            <TeamPlayerInputs teamNumber={1} players={team1Players} setPlayers={setTeam1Players} />
-                            <TeamPlayerInputs teamNumber={2} players={team2Players} setPlayers={setTeam2Players} />
-                        </div>
-                    )}
-                    <button onClick={handleSubmit} className={loading ? 'loading' : ''}>Submit</button>
+                    {result !== null ?
+                        (
+                            <div className="result">
+                                <h2>Prediction Result</h2>
+                                <p>Team 1 Win Probability: {result["team1"]}</p>
+                                <p>Team 2 Win Probability: {result["team2"]}</p>
+                            </div>
+                        ) :
+                        (
+                            <>
+                                <p>
+                                    Welcome to Summoner Showdown, a League of Legends match predictor based off of ELO of each summoner in a match!
+                                    <br />
+                                    <br />
+                                    To get started, please input the in-game usernames of all summoners:
+                                </p>
+
+                                {loading ? (
+                                    <div className="loader"></div>
+                                ) : (
+                                    <div className="input-container">
+                                        <TeamPlayerInputs teamNumber={1} players={team1Players} setPlayers={setTeam1Players} />
+                                        <TeamPlayerInputs teamNumber={2} players={team2Players} setPlayers={setTeam2Players} />
+                                    </div>
+                                )}
+                                <button onClick={handleSubmit} className={loading ? 'loading' : ''}>Submit</button>
+                            </>
+                        )
+                    }
                 </div>
             </div>
         </main>
