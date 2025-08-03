@@ -1,13 +1,11 @@
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    background-color: #0f2220;
+    width: 100%;
+    background: linear-gradient(to bottom, #010d16, #082533);
     font-family: Beaufort;
     font-weight: 700;
     text-transform: uppercase;
-    color: #C79B3B;
+    color: #c28f2c;
 }
 
 header {
@@ -25,7 +23,7 @@ h3 {
 }
 
 a {
-    color: #a3f5d8;
+    color: #96e4ec;
     text-decoration: none;
 }
 
@@ -40,7 +38,8 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 0;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .header {
@@ -50,8 +49,6 @@ p {
 
 .body-container {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,13 +57,11 @@ p {
 
 .input-container {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    margin: 1rem;
+    margin-bottom: 1rem;
 }
 
 button {
@@ -80,6 +75,7 @@ button {
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     font-weight: 700;
+    font-family: Beaufort;
 }
 
 button.loading {
@@ -103,9 +99,9 @@ button:hover {
 }
 
 @keyframes shimmer {
-   to {
-      background-position-x: -50%
-   }
+    to {
+        background-position-x: -50%
+    }
 }
 
 .loader {
@@ -119,6 +115,37 @@ button:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .page-container {
+        padding: 0.5rem;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1, h3 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 10px;
+    }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './username-input.css';
 
-export function UsernameInput({ value = '', onChange, placeholder = 'Enter username', playerNumber }) {
+export function UsernameInput({ value = '', onChange, placeholder = 'Game Name', playerNumber }) {
     const [inputValue, setInputValue] = useState(value);
 
     const handleChange = (e) => {
@@ -13,7 +13,7 @@ export function UsernameInput({ value = '', onChange, placeholder = 'Enter usern
 
     return (
         <div>
-            {playerNumber !== undefined && <span>Player #{playerNumber}: </span>}
+            {playerNumber !== undefined && <span className="player-number">Player #{playerNumber}: </span>}
             <input
                 type="text"
                 className="username-input"

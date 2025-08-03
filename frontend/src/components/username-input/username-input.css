@@ -1,6 +1,17 @@
 input {
-    background-color: #f4de93;
-    color: #0f2220;
-    border-radius: 0.5rem;
+    background-color: #000306;
+    color: #cdbe91;
     padding: 0.5rem;
+    font-weight: 700;
+    border: none;
+}
+
+input::placeholder {
+    color: #cdbe91;
+    opacity: 0.7;
+}
+
+.player-number {
+    color: #cdbe91;
+    font-weight: 700;
 }

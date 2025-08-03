@@ -12,13 +12,14 @@ export function TagInput({ value = '', onChange }) {
     };
 
     return (
-        <div>
-            <span># </span>
+        <div className="tag-input-container">
+            <span className="player-number"># </span>
             <input
                 type="text"
                 className="tag-input"
                 value={inputValue}
                 onChange={handleChange}
+                placeholder="Tagline"
             />
         </div>
     );

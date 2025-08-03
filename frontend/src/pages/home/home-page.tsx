@@ -6,6 +6,7 @@ export function HomePage() {
     const [team1Players, setTeam1Players] = useState(Array(5).fill({ username: '', tag: '' }));
     const [team2Players, setTeam2Players] = useState(Array(5).fill({ username: '', tag: '' }));
     const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(null);
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -20,8 +21,7 @@ export function HomePage() {
                 body: JSON.stringify(payload),
             });
             const data = await response.json();
-            // handle response (show result, etc.)
-            console.log(data);
+            setResult(data);
         } catch (error) {
             console.error('Error submitting teams:', error);
         } finally {
@@ -45,6 +45,7 @@ export function HomePage() {
                         <br />
                         To get started, please input the in-game usernames of all summoners:
                     </p>
+
                     {loading ? (
                         <div className="loader"></div>
                     ) : (
@@ -54,6 +55,16 @@ export function HomePage() {
                         </div>
                     )}
                     <button onClick={handleSubmit} className={loading ? 'loading' : ''}>Submit</button>
+                    {result != null ?
+                        (
+                            <div className="result">
+                                <h2>Prediction Result</h2>
+                                <p>Team 1 Win Probability: {result["team1"]}</p>
+                                <p>Team 2 Win Probability: {result["team2"]}</p>
+                            </div>
+                        ) :
+                        null
+                    }
                 </div>
             </div>
         </main>
