@@ -12,7 +12,7 @@ export function TagInput({ value = '', onChange }) {
     };
 
     return (
-        <div>
+        <div className="tag-input-container">
             <span className="player-number"># </span>
             <input
                 type="text"

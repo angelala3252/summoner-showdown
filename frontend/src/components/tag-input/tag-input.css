@@ -2,3 +2,12 @@
     width: fit-content;
     min-width: 0;
 }
+
+@media only screen and (max-width: 768px) {
+    .tag-input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 50%;
+    }
+}
