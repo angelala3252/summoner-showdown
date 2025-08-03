@@ -1,11 +1,11 @@
 main {
     min-height: 100vh;
     width: 100%;
-    background-color: #0f2220;
+    background: linear-gradient(to bottom, #010d16, #082533);
     font-family: Beaufort;
     font-weight: 700;
     text-transform: uppercase;
-    color: #C79B3B;
+    color: #c28f2c;
 }
 
 header {
@@ -23,7 +23,7 @@ h3 {
 }
 
 a {
-    color: #a3f5d8;
+    color: #96e4ec;
     text-decoration: none;
 }
 
@@ -38,7 +38,8 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 0;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .header {
@@ -74,6 +75,7 @@ button {
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     font-weight: 700;
+    font-family: Beaufort;
 }
 
 button.loading {
@@ -97,9 +99,9 @@ button:hover {
 }
 
 @keyframes shimmer {
-   to {
-      background-position-x: -50%
-   }
+    to {
+        background-position-x: -50%
+    }
 }
 
 .loader {
@@ -113,6 +115,11 @@ button:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
