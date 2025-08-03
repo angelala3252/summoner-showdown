@@ -2,8 +2,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     min-height: 100vh;
     background-color: #0f2220;
     font-family: Beaufort;
@@ -16,7 +14,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.25rem;
 }
 
 h1 {
@@ -43,14 +40,12 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
     min-height: 0;
 }
 
 .header {
     width: 500px;
     max-width: 100vw;
-    padding: 1rem;
 }
 
 .body-container {
