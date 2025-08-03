@@ -1,8 +1,6 @@
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
+    width: 100%;
     background-color: #0f2220;
     font-family: Beaufort;
     font-weight: 700;
@@ -50,8 +48,6 @@ p {
 
 .body-container {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,13 +56,11 @@ p {
 
 .input-container {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    margin: 1rem;
+    margin-bottom: 1rem;
 }
 
 button {
