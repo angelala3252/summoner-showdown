@@ -82,6 +82,19 @@ button {
     font-weight: 700;
 }
 
+button.loading {
+    background-color: #21262c;
+    border-color: #6a6967;
+    cursor: not-allowed;
+}
+
+button.loading:hover {
+    background: #21262c;
+    border-color: #6a6967;
+    animation: none;
+    cursor: not-allowed;
+}
+
 button:hover {
     background: linear-gradient(-45deg, #192d3a 30%, #2b7688 40%, #5cedfd 50%, #2b7688 60%, #192d3a 70%);
     background-size: 300%;
@@ -93,4 +106,19 @@ button:hover {
    to {
       background-position-x: -50%
    }
+}
+
+.loader {
+    border: 6px solid #02576a;
+    border-top: 6px solid #96e4ec;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
