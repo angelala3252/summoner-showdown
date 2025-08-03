@@ -5,7 +5,12 @@ Deployed at https://angelala3252.github.io/summoner-showdown/
 # Instructions
 
 ```
-cd src
+cd frontend
 npm install
-npm run dev
+npm start
+```
+
+# Deployment instructions
+```
+
 ```
