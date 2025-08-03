@@ -1,7 +1,30 @@
+import React, { useState } from 'react';
 import { TeamPlayerInputs } from '../../components/team-player-inputs/team-player-inputs';
 import './home-page.css';
 
 export function HomePage() {
+    const [team1Players, setTeam1Players] = useState(Array(5).fill({ username: '', tag: '' }));
+    const [team2Players, setTeam2Players] = useState(Array(5).fill({ username: '', tag: '' }));
+
+    const handleSubmit = async () => {
+        const payload = {
+            team1: team1Players,
+            team2: team2Players,
+        };
+        try {
+            const response = await fetch('/backend-endpoint', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            const data = await response.json();
+            // handle response (show result, etc.)
+            console.log(data);
+        } catch (error) {
+            console.error('Error submitting teams:', error);
+        }
+    };
+
     return (
         <main>
             <div className="page-container">
@@ -19,9 +42,10 @@ export function HomePage() {
                         To get started, please input the in-game usernames of all summoners:
                     </p>
                     <div className="input-container">
-                        <TeamPlayerInputs teamNumber={1} />
-                        <TeamPlayerInputs teamNumber={2} />
+                        <TeamPlayerInputs teamNumber={1} players={team1Players} setPlayers={setTeam1Players} />
+                        <TeamPlayerInputs teamNumber={2} players={team2Players} setPlayers={setTeam2Players} />
                     </div>
+                    <button onClick={handleSubmit}>Submit</button>
                 </div>
             </div>
         </main>

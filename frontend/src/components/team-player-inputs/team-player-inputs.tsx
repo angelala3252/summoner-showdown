@@ -8,21 +8,14 @@ interface Player {
     tag: string;
 }
 
-export function TeamPlayerInputs({ teamNumber }: { teamNumber: number }) {
-    const [players, setPlayers] = useState<Player[]>(
-        Array.from({ length: 5 }, () => ({
-            username: '',
-            tag: '',
-        }))
-    );
-
-    const handleUsernameChange = (index: number, value: string) => {
+export function TeamPlayerInputs({ teamNumber, players, setPlayers }) {
+    const handleUsernameChange = (index, value) => {
         const updated = [...players];
         updated[index].username = value;
         setPlayers(updated);
     };
 
-    const handleTagChange = (index: number, value: string) => {
+    const handleTagChange = (index, value) => {
         const updated = [...players];
         updated[index].tag = value;
         setPlayers(updated);

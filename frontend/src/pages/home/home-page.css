@@ -52,6 +52,10 @@ p {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .input-container {
@@ -63,4 +67,30 @@ p {
     align-items: center;
     justify-content: center;
     margin: 1rem;
+}
+
+button {
+    background-color: #1b2c38;
+    color: #f0e6d2;
+    border: 2px solid #96e4ec;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+button:hover {
+    background: linear-gradient(-45deg, #192d3a 30%, #2b7688 40%, #5cedfd 50%, #2b7688 60%, #192d3a 70%);
+    background-size: 300%;
+    background-position: 100% 0%;
+    animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+   to {
+      background-position-x: -50%
+   }
 }
