@@ -2,7 +2,7 @@ import requests
 import json
 import time
 
-api_key = "RGAPI-367e41a4-7e32-4a31-8581-1fb9b96094b4"
+api_key = "RGAPI-2666da33-8406-4668-8e18-6997a5a7f06d"
 
 team1 = [
     {"gameName": "cant type", "tagLine": "1998"},
@@ -47,9 +47,12 @@ def get_puuid(
 def get_player_info(puuid):
     player_info = {}
     fields = ["tier", "rank", "leaguePoints", "wins", "losses"]
-    for field in fields:
-        player_info[field] = fetch_something(f"https://na1.api.riotgames.com/lol/league/v4/entries/by-puuid/{puuid}",
-            headers={"X-Riot-Token": api_key})[0][field]
+    data = fetch_something(f"https://na1.api.riotgames.com/lol/league/v4/entries/by-puuid/{puuid}",
+            headers={"X-Riot-Token": api_key})
+    if data:
+        data = data[0]
+        for field in fields:
+            player_info[field] = data[field]
     return player_info
 
 
@@ -82,23 +85,24 @@ def get_num_rank(
 
 
 def get_player_ranking(puuid):
-    num_games = 3
+    # num_games = 3
     player_info = get_player_info(puuid)
 
-    prev_game_ids = fetch_something(
-        f"https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count={num_games}",
-        headers={"X-Riot-Token": api_key})
+    # prev_game_ids = fetch_something(
+    #     f"https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count={num_games}",
+    #     headers={"X-Riot-Token": api_key})
     
     intial_ranking = get_num_rank(player_info["tier"], player_info["rank"], player_info["leaguePoints"])
-    rankings = [intial_ranking]
+    # rankings = [intial_ranking]
     
-    for game in prev_game_ids:
-        updated_ranking = update_ranking(puuid, rankings[-1], game)
-        rankings.append(updated_ranking)
+    # for game in prev_game_ids:
+    #     updated_ranking = update_ranking(puuid, rankings[-1], game)
+    #     rankings.append(updated_ranking)
 
     # if no previous games??
 
-    return rankings[-1]
+    # return rankings[-1]
+    return intial_ranking
 
 
 def update_ranking(
@@ -129,7 +133,10 @@ def update_ranking(
         team1_dict[player] = {}
         player_info = get_player_info(player)
 
-        games = player_info["wins"] + player_info["losses"] 
+        if player_info:
+            games = player_info["wins"] + player_info["losses"] 
+        else:
+            games = 0
         k_value = 800 / (games +1)
         team1_dict[player]["K"] = k_value
 
@@ -146,14 +153,20 @@ def update_ranking(
             puuid_team = 1
         
         else:
-            num_rank = get_num_rank(player_info["tier"], player_info["rank"], player_info["leaguePoints"])
+            if player_info:
+                num_rank = get_num_rank(player_info["tier"], player_info["rank"], player_info["leaguePoints"])
+            else:
+                num_rank = 0
             team1_dict[player]["rank"] = num_rank
 
     for player in team2:
         team2_dict[player] = {}
         player_info = get_player_info(player)
 
-        games = player_info["wins"] + player_info["losses"] 
+        if player_info:
+            games = player_info["wins"] + player_info["losses"] 
+        else:
+            games = 0
         k_value = 800 / (games +1)
         team2_dict[player]["K"] = k_value
 
@@ -170,7 +183,10 @@ def update_ranking(
             puuid_team = 2
 
         else:
-            num_rank = get_num_rank(player_info["tier"], player_info["rank"], player_info["leaguePoints"])
+            if player_info:
+                num_rank = get_num_rank(player_info["tier"], player_info["rank"], player_info["leaguePoints"])
+            else:
+                num_rank = 0
             team2_dict[player]["rank"] = num_rank
     
     # get team ranks
