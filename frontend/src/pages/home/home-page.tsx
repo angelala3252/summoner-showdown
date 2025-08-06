@@ -34,8 +34,11 @@ export function HomePage() {
             <div className="page-container">
                 <header>
                     <div className="header">
-                        <h1>Summoner Showdown</h1>
-                        <h3>By <a href="https://github.com/angelala3252">angelala3252</a> and <a href="https://github.com/ilanivek">ilanivek</a></h3>
+                        <img src={require("./riot.png")} alt="Summoner Showdown Logo" />
+                        <div className="header-text">
+                            <h1>Summoner Showdown</h1>
+                            <h3>By <a href="https://github.com/angelala3252">angelala3252</a> and <a href="https://github.com/ilanivek">ilanivek</a></h3>
+                        </div>
                     </div>
                 </header>
                 <div className="body-container">
