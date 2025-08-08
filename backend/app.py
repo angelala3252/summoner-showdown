@@ -21,4 +21,4 @@ def get_prediction(data):
     return {"team1": t1_expected_win, "team2": t2_expected_win}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
