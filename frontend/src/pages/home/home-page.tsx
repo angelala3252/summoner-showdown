@@ -3,8 +3,8 @@ import { TeamPlayerInputs } from '../../components/team-player-inputs/team-playe
 import './home-page.css';
 
 export function HomePage() {
-    const [team1Players, setTeam1Players] = useState(Array(5).fill({ username: '', tag: '' }));
-    const [team2Players, setTeam2Players] = useState(Array(5).fill({ username: '', tag: '' }));
+    const [team1Players, setTeam1Players] = useState(Array(5).fill({ gameName: '', tagLine: '' }));
+    const [team2Players, setTeam2Players] = useState(Array(5).fill({ gameName: '', tagLine: '' }));
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
 

@@ -1,8 +1,14 @@
 import requests
 import json
 import time
+from dotenv import load_dotenv
+import os
 
-api_key = "RGAPI-2666da33-8406-4668-8e18-6997a5a7f06d"
+load_dotenv()
+api_key = os.getenv("API_KEY")
+
+if not api_key:
+    raise ValueError("API key is required. Please set API_KEY in your .env file.")
 
 team1 = [
     {"gameName": "cant type", "tagLine": "1998"},
@@ -272,20 +278,4 @@ def fetch_something(url, params=None, data=None, headers=None, cookies=None, aut
     if response.status_code == 200:
         return response.json()
     else:
-        print(f"Error fetching data: {response.status_code}")
-
-
-if __name__ == "__main__":
-    if not api_key:
-        raise ValueError("API key is required. Please set the 'api_key' variable.")
-    
-    team1_puuid, team2_puuid = get_puuid(team1, team2)
-
-    t1_expected_win, t2_expected_win = get_expected_win_rate(team1_puuid, team2_puuid)
-
-    if t1_expected_win == t2_expected_win:
-        print("The teams are evenly matched.")
-    elif t1_expected_win > t2_expected_win:
-        print("Team 1 is expected to win.")
-    else:
-        print("Team 2 is expected to win.")
+        print(f"Error fetching data from {url}: {response.status_code}")
