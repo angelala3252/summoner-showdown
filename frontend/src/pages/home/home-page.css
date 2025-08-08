@@ -76,6 +76,7 @@ button {
     text-transform: uppercase;
     font-weight: 700;
     font-family: Beaufort;
+    margin-bottom: 1rem;
 }
 
 button.loading {

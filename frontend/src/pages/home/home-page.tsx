@@ -8,6 +8,8 @@ export function HomePage() {
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
 
+    const API_URL = process.env.REACT_APP_BACKEND_URL;
+
     const handleSubmit = async () => {
         setLoading(true);
         const payload = {
@@ -15,7 +17,7 @@ export function HomePage() {
             team2: team2Players,
         };
         try {
-            const response = await fetch('http://127.0.0.1:5000/prediction', {
+            const response = await fetch(`${API_URL}/prediction`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
@@ -43,7 +45,7 @@ export function HomePage() {
                 </header>
                 <div className="body-container">
                     <p>
-                        Welcome to Summoner Showdown, a League of Legends match predictor based off of ELO of each summoner in a match!
+                        Welcome to Summoner Showdown, a League of Legends match predictor based off of the rank of each summoner in a match!
                         <br />
                         <br />
                         To get started, please input the in-game usernames of all summoners:
