@@ -45,7 +45,7 @@ export function HomePage() {
                 </header>
                 <div className="body-container">
                     <p>
-                        Welcome to Summoner Showdown, a League of Legends match predictor based off of ELO of each summoner in a match!
+                        Welcome to Summoner Showdown, a League of Legends match predictor based off of the rank of each summoner in a match!
                         <br />
                         <br />
                         To get started, please input the in-game usernames of all summoners:
