@@ -1,5 +1,5 @@
 # summoner-showdown
-A website that calculates the probability of either team winning in a League of Legends match, based on rank of each individual player on each team. 
+A website that calculates the probability of either team winning in a League of Legends match, based on rank of each individual player on each team taken from [Riot API](https://developer.riotgames.com/apis)
 
 Deployed at https://angelala3252.github.io/summoner-showdown/ using Github Pages
 
