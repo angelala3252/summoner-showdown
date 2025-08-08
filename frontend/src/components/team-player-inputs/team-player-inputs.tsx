@@ -3,21 +3,16 @@ import { UsernameInput } from '../username-input/username-input';
 import './team-player-inputs.css';
 import { TagInput } from '../tag-input/tag-input';
 
-interface Player {
-    username: string;
-    tag: string;
-}
-
 export function TeamPlayerInputs({ teamNumber, players, setPlayers }) {
     const handleUsernameChange = (index, value) => {
         const updated = [...players];
-        updated[index].username = value;
+        updated[index].gameName = value;
         setPlayers(updated);
     };
 
     const handleTagChange = (index, value) => {
         const updated = [...players];
-        updated[index].tag = value;
+        updated[index].tagLine = value;
         setPlayers(updated);
     };
 
@@ -28,11 +23,11 @@ export function TeamPlayerInputs({ teamNumber, players, setPlayers }) {
                 <div className="player-input" key={i}>
                     <UsernameInput
                         playerNumber={i + 1}
-                        value={player.username}
+                        value={player.gameName}
                         onChange={value => handleUsernameChange(i, value)}
                     />
                     <TagInput
-                        value={player.tag}
+                        value={player.tagLine}
                         onChange={value => handleTagChange(i, value)}
                     />
                 </div>

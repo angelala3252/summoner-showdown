@@ -8,9 +8,7 @@ CORS(app)
 @app.route('/prediction', methods=['POST'])
 def receive_teams():
     data = request.get_json()
-    print(data)
-    # return jsonify(get_prediction(data)), 200
-    return jsonify({"team1": 0.63, "team2": 0.37}), 200
+    return jsonify(get_prediction(data)), 200
 
 def get_prediction(data):
     team1 = data.get("team1")
@@ -23,4 +21,4 @@ def get_prediction(data):
     return {"team1": t1_expected_win, "team2": t2_expected_win}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
