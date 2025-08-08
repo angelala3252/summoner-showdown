@@ -3,7 +3,7 @@ A website that calculates the probability of either team winning in a League of 
 
 Deployed at https://angelala3252.github.io/summoner-showdown/ using Github Pages
 
-Backend deployed using Docker and fly.io
+Backend deployed using Docker and [fly.io](https://fly.io/)
 
 # Instructions
 
