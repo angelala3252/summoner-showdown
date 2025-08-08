@@ -8,6 +8,8 @@ export function HomePage() {
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
 
+    const API_URL = process.env.REACT_APP_BACKEND_URL;
+
     const handleSubmit = async () => {
         setLoading(true);
         const payload = {
@@ -15,7 +17,7 @@ export function HomePage() {
             team2: team2Players,
         };
         try {
-            const response = await fetch('http://127.0.0.1:5000/prediction', {
+            const response = await fetch(`${API_URL}/prediction`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
