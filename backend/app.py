@@ -3,7 +3,7 @@ from flask_cors import CORS
 from main import get_expected_win_rate, get_puuid, get_player_ranking
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:3000", "https://angelala3252.github.io"])
 
 @app.route('/prediction', methods=['POST'])
 def receive_teams():
